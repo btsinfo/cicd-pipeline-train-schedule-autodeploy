@@ -62,7 +62,7 @@ pipeline {
                 script {
                     sleep (time: 10)
                     def response = httpRequest (
-                        url: "http://$KUBE_MASTER_IP:30005/",
+                        url: "http://$KUBE_MASTER_IP:30002/",
                         timeout: 30
                     )
                     echo 'fin smoketest response.status '
