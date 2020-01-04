@@ -67,7 +67,6 @@ pipeline {
                         echo 'fin smoketest response.status '
                     )
                     if (response.status != 200) {
-                        
                         error("Smoke test against canary deployment failed.")
                     }
                 }
