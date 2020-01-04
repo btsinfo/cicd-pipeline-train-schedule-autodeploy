@@ -9,7 +9,7 @@ spec:
     track: canary
   ports:
   - protocol: TCP
-    port: 30001
+    port: 8080
     nodePort: 30002
 
 ---
@@ -36,12 +36,12 @@ spec:
       - name: train-schedule
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
-        - containerPort: 30001
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /
-            port: 30001
-          initialDelaySeconds: 15
+            port: 8080
+          initialDelaySeconds: 39
           timeoutSeconds: 1
           periodSeconds: 10
         resources:
