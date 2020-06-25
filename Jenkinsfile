@@ -13,6 +13,12 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
+        stage('OWASP Dependency Check') {
+            steps {
+                echo 'Running Dependency check'
+                sh './gradlew dependencyCheckAnalyze'
+            }
+        }        
         stage('Build Docker Image') {
             when {
                 branch 'master'
