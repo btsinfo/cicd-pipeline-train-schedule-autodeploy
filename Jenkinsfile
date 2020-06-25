@@ -92,7 +92,6 @@ pipeline {
         }
     }
     post {
-        dependencyCheckPublisher pattern: 'build/reports/dependency-check-report.xml'
         cleanup {
             kubernetesDeploy (
                 kubeconfigId: 'kubeconfig',
