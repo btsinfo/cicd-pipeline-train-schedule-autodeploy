@@ -16,7 +16,7 @@ pipeline {
         stage('OWASP Dependency Check') {
             steps {
                 echo 'Running Dependency check'
-                sh './gradlew dependencyCheckAnalyze --scan'
+                sh './gradlew dependencyCheckAnalyze'
             }
         }        
         stage('Build Docker Image') {
