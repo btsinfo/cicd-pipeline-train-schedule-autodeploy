@@ -26,13 +26,6 @@ task zip(type: Zip) {
 	destinationDir(file("dist"))
 	baseName "trainSchedule"
 }
-
-//declare task dependencies
-build.dependsOn zip
-zip.dependsOn npm_build
-npm_build.dependsOn npm_test
-npm_test.dependsOn npmInstall
-npm_build.dependsOn npmInstall
 // OWASP Dependency Check settings
 dependencyCheck {
 
@@ -53,3 +46,11 @@ dependencyCheck {
     //   confirmed vulnerabilities which are not fixed yet, but we have a ticket for that
     suppressionFile = 'dependency-check-known-issues.xml'
 }
+
+
+//declare task dependencies
+build.dependsOn zip
+zip.dependsOn npm_build
+npm_build.dependsOn npm_test
+npm_test.dependsOn npmInstall
+npm_build.dependsOn npmInstall
